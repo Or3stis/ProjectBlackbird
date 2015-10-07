@@ -1,4 +1,4 @@
-#! /usr/bin/env/ python3
+#!/usr/bin/env python3
 
 # python 3
 # sniffs the ssid and mac and channel
