@@ -1,4 +1,4 @@
-#!/usr/bin/env/ python3
+#!/usr/bin/env python3
 
 # hidden SSID sniffer
 # python 3
