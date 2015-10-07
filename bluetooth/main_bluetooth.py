@@ -1,4 +1,4 @@
-#!/usr/bin/ python3
+#!/usr/bin/env python3
 
 # bluetooth stresstessting tool
 # the function of the program is to call independent
