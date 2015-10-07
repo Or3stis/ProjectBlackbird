@@ -1,57 +1,46 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
+#!/usr/bin/env ruby
+# parses a txt to find IP using grep
+# can use geolocation to locate the IPs
+# and print them in a txt file
 
-# C extensions
-*.so
+puts 'Enter location of txt'
+txt_location = gets.chomp
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
+# the grep command to find the IP, is broken down into four parts
+# each part is the parses for the 3 digits of the IP
+# can be narrowed down with specific values
+command_1 = 'grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
+command_2 = '\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
+command_3 = '\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
+command_4 = '\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"'
+command = (command_1 + command_2 + command_3 + command_4)
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# generates the IPs list array
+ip_list = `#{command} #{txt_location}`.split
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# prints the list with IPs
+puts
+puts ip_list
+puts
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
+# starts the geolocation
+# uses the site ipinfo.io for the requests
+print 'Use geolocation? y/n '
+answer = gets.chomp
 
-# Translations
-*.mo
-*.pot
+if answer == 'y' || answer == 'Y'
 
-# Django stuff:
-*.log
+  time = Time.new
+  time_now = time.strftime('%H.%M.%S')
+  # creates a log file with a time stamp
+  log = File.new('Desktop/ip_loc-' + time_now + '.log', 'w')
 
-# Sphinx documentation
-docs/_build/
+  ip_list.each do |i|
+    location = `curl ipinfo.io/#{i}`
+    puts location
+    puts
+    log.puts location
+  end
 
-# PyBuilder
-target/
+  puts 'New log file created at ' + File.absolute_path(log)
+end
