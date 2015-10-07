@@ -1,6 +1,8 @@
-author: Orestis Mavropoulos
+# Project Blackbird
 
-Open-source and free
+IoT Stress testing tool
+
+Author: Orestis Mavropoulos
 
 The code is free to be distributed and altered in any way.
 
