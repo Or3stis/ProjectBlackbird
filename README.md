@@ -5,7 +5,7 @@ IoT Stress testing tool
 Works only on Linux
 
 The application is still in its early stages of development.
-There are a lot of issues and bugs that need to corrected.
+There are a lot of issues and bugs that need to resolved.
 
 # Usage: 
 python3 /project/main.py
