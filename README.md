@@ -8,7 +8,7 @@ The application is still in its early stages of development.
 There are a lot of issues and bugs that need to resolved.
 
 # Usage: 
-python3 /project/main.py
+    $ python3 main.py
 
 Other usage instructions are written in each individual program
 
