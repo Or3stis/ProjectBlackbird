@@ -1,6 +1,6 @@
 # Project Blackbird
 
-IoT Stress testing tool
+Internet of Things vulnerability testing tool, written in python3
 
 Works only on Linux
 
