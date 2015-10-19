@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-# ported for python3 but it doens't work
 # dos attack using deauth packets
 # needs target mac and bssid
 
